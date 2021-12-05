@@ -3,7 +3,7 @@ $input = file.readlines
 file.close
 
 def countOverlapping(enableDiagonal)
-  grid = Hash.new
+  grid = Hash.new(0)
 
   $input.each do |line|
     x1, y1, x2, y2 = line.match(/(\d+),(\d+) -> (\d+),(\d+)/).captures.map(&:to_i)
@@ -20,9 +20,6 @@ def countOverlapping(enableDiagonal)
     end
 
     positions.each do |pos|
-      if !grid.key?(pos)
-        grid[pos] = 0
-      end
       grid[pos] += 1
     end
   end
